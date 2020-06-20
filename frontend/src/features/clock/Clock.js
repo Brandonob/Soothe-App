@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
+import moment from 'moment';
 
-
-export default function Clock () {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+const Clock = () => {
+  const [time, setTime] = useState(moment().format('hh:mm:ssA'));
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString())
+      const display = moment().format('hh:mm:ssA');
+      setTime(display)
     }, 1000)
-    return () => clearInterval(timer)
-  }, []);
+    return() => clearInterval(timer)
+  },[])
+
   return (
     <div>
-      { time }
+      <h2 id="Clock">{time}</h2>
     </div>
   )
 };
+export default Clock;
