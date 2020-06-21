@@ -2,16 +2,21 @@ import { createSlice } from "@reduxjs/toolkit"
 
 export const alarmsSlice = createSlice({
   name: "alarms", 
-  initialState: [],
+  initialState: {
+    "currentTime": "",
+    "alarms": []
+  },
   reducers: {
     addAlarm: (state, action) => {
-      state.push(action.payload)
-      console.log("function completed");
-      
-    }
+      state["alarms"].push(action.payload)
+      // console.log("function completed");
+    },
+    deleteAlarm: (state, action) => state["alarms"].filter(el => el.time !== action.payload)
 
   }
 })
 
-export const { addAlarm } = alarmsSlice.actions;
+export const selectAlarms = state => state.alarms
+
+export const { addAlarm, deleteAlarm } = alarmsSlice.actions;
 export default alarmsSlice.reducer;
