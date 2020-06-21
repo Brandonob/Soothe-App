@@ -9,15 +9,12 @@ const SetAlarmForm = ({ time }) => {
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("00");
-  // const [identifier, setIdentifier] = useState("");
+  
   const dispatch = useDispatch();
 // debugger
   let alarms = useSelector(selectAlarms)
 
-  // const formatTime = () => {
-    
-  //   setCompareTime(addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds))
-  // }
+  
   const addZero = (value) => {
     if(value.length === 1) {
       return "0" + value
@@ -26,15 +23,11 @@ const SetAlarmForm = ({ time }) => {
     }
   }
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setIdentifier(e.target.children[2].value)
+    
     let formatted = addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + e.target.children[2].value
     dispatch(addAlarm({ "time": formatted, "task": task }))
-    // dispatch(addAlarm(e.target.children[0].value))
-    // setCompareTime(addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + identifier)
-    
     debugger
   }
 
