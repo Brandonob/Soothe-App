@@ -1,0 +1,20 @@
+.App {
+    display: flex;
+    flex-direction: row;
+    
+}
+.left {
+    flex-grow: 1;
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+}
+.right {
+    flex-grow: 10;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    margin-top: 150px;
+    
+}
