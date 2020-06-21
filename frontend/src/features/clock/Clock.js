@@ -18,8 +18,8 @@ const Clock = () => {
 
   return (
     <div>
-      <SetAlarmForm time={time}/>
       <h2 id="Clock">{time}</h2>
+      <SetAlarmForm time={time}/>
     </div>
   )
 };
