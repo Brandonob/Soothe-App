@@ -6,6 +6,7 @@ import Clock from './features/clock/Clock'
 import DisplayWeatherLocation from './features/weather/DisplayWeatherLocation'
 // import Calendar from "./features/calendar"
 import Day from "./features/day/Day"
+import { appStyles } from './css/appStyles'
 // import clipboardClock from './icons/clipboardClock.png'
 // import clipboard from './icons/clipboard.png'
 
@@ -19,21 +20,21 @@ function App() {
   // }
   
   return (
-    <div className="App">
-       
+    <div className="App" style={appStyles}>
       <section className="left">
+        <h1 id="title">Soothe</h1>
         {/* <img src={clipboardClock} alt="" onClick={showForm}></img>
         <img src={clipboard} alt="" onClick={showTask}></img> */}
 
         {/* <SetAlarmForm/> */}
       </section>
-      <section cla ssName="right">
+      <section className="right">
       <Clock />
         <DisplayWeatherLocation/>
       </section>
-      <section>
+      {/* <section> */}
       {/* <Calendar />     */}
-      </section>
+      {/* </section> */}
     
     </div >
   )

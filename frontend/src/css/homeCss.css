@@ -45,6 +45,8 @@ table {
 .App {
     display: flex;
     flex-direction: row;
+    /* height: 100vh; */
+    /* background-image: url(""); */
     
 }
 .left {
@@ -52,14 +54,14 @@ table {
     justify-items: center;
     display: flex;
     justify-content: center;
+    /* background-color: aqua;  */
 }
 .right {
-    flex-grow: 10;
-    height: 100vh;
+    flex-grow: 8;
     display: flex;
     justify-content: center;
     position: relative;
-    margin-top: 150px;
+    /* background-color: blue;  */
     
 }
 img {
