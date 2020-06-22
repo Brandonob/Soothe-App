@@ -1,4 +1,5 @@
 import React from 'react'
+import Player from "../player/Player";
 
 const DisplayAlarm = ({ alarmDetails }) => {
     // debugger
@@ -13,6 +14,7 @@ const DisplayAlarm = ({ alarmDetails }) => {
         <div className="alarm">
             <h1>{time}</h1>
             <p>{task}</p>
+            <Player />
         </div>
     )
 }
