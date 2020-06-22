@@ -28,7 +28,7 @@ const DisplayWeatherLocation = () => {
       const res = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=hourly,daily&appid=${APIKEY}&units=imperial`)
       // const res = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=${APIKEY}`)
       // exclude=hourly,daily&appid={YOUR API KEY}
-      debugger
+      // debugger
       console.log(res.data);
       // const {icon} = res.data.current.weather[0];
       setIcon(res.data.current.weather[0].icon)
