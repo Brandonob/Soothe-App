@@ -1,7 +1,6 @@
 import React from 'react'
 
 const DisplayAlarm = ({ alarmDetails }) => {
-    // debugger
     const {
         time,
         task
@@ -11,6 +10,7 @@ const DisplayAlarm = ({ alarmDetails }) => {
     
     return (
         <div className="alarm">
+
             <h1>{time}</h1>
             <p>{task}</p>
         </div>
