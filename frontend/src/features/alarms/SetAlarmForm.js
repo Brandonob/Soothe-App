@@ -3,6 +3,10 @@ import { addAlarm, currentAlarm, deleteAlarm } from '../alarms/alarmsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAlarms  } from './alarmsSlice'
 import DisplayAlarm from './DisplayAlarm'
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
+toast.configure();
 
 const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
   const [task, setTask] = useState("");
@@ -50,6 +54,8 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
     setInterval(() => {
       setMessage("")
     }, 3000);
+    
+    toast("New task created!");
     // debugger
   }
 
