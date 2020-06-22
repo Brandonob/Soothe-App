@@ -3,7 +3,7 @@ import weatherpic from '../images/weatherpic.jpg'
 import Earlymorning from '../images/Earlymorning.jpeg'
 import Rainyday from '../images/Rainyday.jpeg'
 
-const images = [weatherpic, Earlymorning, Rainyday]
+const images = ["weatherpic", "Earlymorning", "Rainyday"]
 
 const  MyHook = () => {
     const [background, setBackground] = useState("")

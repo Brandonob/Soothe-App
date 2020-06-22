@@ -10,6 +10,7 @@ import clipboard from '../../icons/clipboard.png'
 const Clock = () => {
   const [time, setTime] = useState(moment().format('hh:mm:ssA'));
   const [shoForm, setShoForm] = useState(false)
+  const [shoTasks, setShoTasks] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -26,16 +27,35 @@ const Clock = () => {
     shoForm === false ? setShoForm(true) : setShoForm(false)
   }
   const showTask = () => {
-
+    shoForm === false ? setShoForm(true) : setShoForm(false)
   }
 
   return (
-    <div>
-      <h2><Days/></h2>
-      <h2 id="Clock">{time}</h2>
-      <img src={clipboardClock} alt="" onClick={showForm}></img>
-      <img src={clipboard} alt="" onClick={showTask}></img>
-      {shoForm === true ? <SetAlarmForm time={time}/> : null}
+    <div >
+      <section className="clockjs">
+        <h1 id="clock">{time}</h1>
+        <h1 id= "day"><Days/></h1>
+      </section>
+
+      <section className="icons">
+
+        <section className="clipClock">
+          <img id="clipClock" src={clipboardClock} alt="" onClick={showForm}></img>
+        </section>
+
+        <section className="clipboard">
+          <img id="clipboard" src={clipboard} alt="" onClick={showTask}></img>
+        </section>
+
+      </section>
+
+      <section className="addTask">
+        {shoForm === true ? <SetAlarmForm time={time}/> : null}
+      </section>
+
+      <section className="showTask">
+      {/* {shoForm === true ? <SetAlarmForm time={time}/> : null} */}
+      </section>
       {/* <SetAlarmForm time={time}/> */}
     </div>
   )

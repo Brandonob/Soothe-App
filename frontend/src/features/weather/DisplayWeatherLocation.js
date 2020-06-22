@@ -37,25 +37,6 @@ const DisplayWeatherLocation = () => {
       setMain(res.data.current.weather[0].main)
       setDescription(res.data.current.weather[0].description)
       setHumidity(res.data.current.humidity)
-      
-      // it didn't work
-      // res.data.current.sunrise
-      // res.data.current.sunset
-      // let dateObj = new Date(res.data.current.sunset * 1000);
-      // let utcString = dateObj.toUTCString();
-    
-      // console.log(utcString)
-      // let today= moment(utcString).zone("-7")
-      // console.log(today, "-7");
-      // console.log(moment(utcString ).zone(120), "120")
-      // console.log(moment(utcString ).zone(480),"480")
-      // console.log(moment(utcString ).zone(8), "8")
-    
-
-
-      // console.log(time)
-
-      
     } catch (error) {
       console.log(error);
     }
@@ -90,22 +71,16 @@ const DisplayWeatherLocation = () => {
       <form onSubmit={handleSubmit}>
         {/* <button>get location</button> */}
       </form>
-      <div>
-        {timezone}
-        {/* {(icon) ?
-          locationIcon.src = `icons/${icon}.png` :
-          locationIcon.src = "icons/unknown.png"
-        }
-       */}
-        <img src={`http://openweathermap.org/img/wn/${icon}.png`} alt=""/>
-        Current Temperature: {temperature} °F
-        Forecast: {main}
-        Description: {description}
-        Humidity: {humidity} %
+      <div className="weather">
+        <h1>{timezone}</h1>
+        <h1 id="temp">{Math.round(temperature) + "°"}</h1>
+        <img id="weathicon" src={`http://openweathermap.org/img/wn/${icon}.png`} alt=""/>
+        <h1>Forecast: {main}</h1>
+        <h1>Description: {description}</h1>
+        <h1>Humidity: {humidity} %</h1>
       </div>
     </div>
   )
 }
 
 export default DisplayWeatherLocation;
-// ddd0bb2b5a159e40998d41b0d1725c2b
