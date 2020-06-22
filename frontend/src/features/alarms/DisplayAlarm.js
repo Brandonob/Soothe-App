@@ -1,4 +1,5 @@
 import React from 'react'
+import Player from "../player/Player";
 
 const DisplayAlarm = ({ alarmDetails }) => {
     const {
@@ -13,6 +14,7 @@ const DisplayAlarm = ({ alarmDetails }) => {
 
             <h1>{time}</h1>
             <p>{task}</p>
+            <Player />
         </div>
     )
 }
