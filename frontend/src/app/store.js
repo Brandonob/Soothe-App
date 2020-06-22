@@ -8,6 +8,5 @@ export default configureStore({
     counter: counterReducer,
     alarms: alarmsReducer,
     weather: weatherReducer,
-
   },
 });
