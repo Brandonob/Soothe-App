@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Days from '../day/Day'
 import { addTime } from '../alarms/alarmsSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectAlarms  } from '../alarms/alarmsSlice'
 import moment from 'moment';
 import SetAlarmForm from '../alarms/SetAlarmForm'
 import clipboardClock from '../../icons/clipboardClock.png'
@@ -12,6 +13,7 @@ const Clock = () => {
   const [shoForm, setShoForm] = useState(false)
   const [shoTasks, setShoTasks] = useState(false)
 
+  const toDos = useSelector(selectAlarms)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,7 +29,17 @@ const Clock = () => {
     shoForm === false ? setShoForm(true) : setShoForm(false)
   }
   const showTask = () => {
-    shoForm === false ? setShoForm(true) : setShoForm(false)
+    shoTasks === false ? setShoTasks(true) : setShoForm(false)
+  }
+  const DisplayTodos = () => {
+    return (
+      <section>
+        {toDos.alarms.filter(el => {
+          return `You have an upcoming alarm at ${el.time}
+                  Task/Reminder: ${el.task}`
+        })}
+      </section>
+    )
   }
 
   return (
@@ -49,14 +61,8 @@ const Clock = () => {
 
       </section>
 
-      <section className="addTask">
-        {shoForm === true ? <SetAlarmForm time={time}/> : null}
-      </section>
+      <SetAlarmForm time={time} shoForm={shoForm} shoTasks={shoTasks}/>
 
-      <section className="showTask">
-      {/* {shoForm === true ? <SetAlarmForm time={time}/> : null} */}
-      </section>
-      {/* <SetAlarmForm time={time}/> */}
     </div>
   )
 };

@@ -8,9 +8,9 @@ import "react-toastify/dist/ReactToastify.css"
 
 toast.configure();
 
-const SetAlarmForm = ({ time }) => {
+const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
   const [task, setTask] = useState("");
-  const [compareTime, setCompareTime] = useState("");
+  const [message, setMessage] = useState("");
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("00");
@@ -25,20 +25,13 @@ const SetAlarmForm = ({ time }) => {
   const fireTask = (task) => {
     setAlarmDetails(task)
   }
-  const DisplayTodos = () => {
-    return (
-      <section >
-
-      </section>
-    )
-  }
 
   useEffect(() => {
     toDos.alarms.forEach(el => {
       if(time === el.time){
         // debugger
         fireTask(el)
-        console.log("setAlarm was hit");
+        // console.log("setAlarm was hit");
       }
     })
 
@@ -57,28 +50,32 @@ const SetAlarmForm = ({ time }) => {
     
     let formatted = addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + e.target.children[2].value
     dispatch(addAlarm({ "time": formatted, "task": task }))
-    setHour("");
-    setMinutes("");
-    setTask("");
+    setMessage("You've created a Reminder !")
+    setInterval(() => {
+      setMessage("")
+    }, 3000);
+    
     toast("New task created!");
     // debugger
   }
 
   return (
     <div >
+      {shoForm === true ?
       <section className="formBorder">
         <form id="taskForm" onSubmit={handleSubmit}>
           <input id="timeinput" placeholder="Hr" type="text" onChange={(e) => setHour(e.target.value)}/>
           <input id="timeinput" placeholder="Min" type="text" onChange={(e) => setMinutes(e.target.value)}/>
-          <select>
+          <select >
             <option>PM</option>
             <option>AM</option>
           </select>
-          <input placeholder="Task/Reminder (Optional)" onChange={(e) => setTask(e.target.value)}/>
+          <input placeholder="Task/Reminder (Optional)" id="timeinput" className="start" onChange={(e) => setTask(e.target.value)}/>
           <button type="submit">submit</button>
+          <br/>
+          {message}
         </form>
-      </section>
-      {/* <h1>{alarmDetails.time}</h1> */}
+      </section> : null}
       <DisplayAlarm  alarmDetails={alarmDetails}/>
     </div>
   )
