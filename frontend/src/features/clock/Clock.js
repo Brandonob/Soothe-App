@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
+import Days from '../day/Day'
 import { addTime } from '../alarms/alarmsSlice'
 import { useDispatch } from 'react-redux'
 import moment from 'moment';
 import SetAlarmForm from '../alarms/SetAlarmForm'
+import clipboardClock from '../../icons/clipboardClock.png'
+import clipboard from '../../icons/clipboard.png'
 
 const Clock = () => {
   const [time, setTime] = useState(moment().format('hh:mm:ssA'));
+  const [shoForm, setShoForm] = useState(false)
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     const timer = setInterval(() => {
       const display = moment().format('hh:mm:ssA');
@@ -16,10 +22,20 @@ const Clock = () => {
     return() => clearInterval(timer)
   },[])
 
+  const showForm = () => {
+    return <SetAlarmForm time={time}/>
+  }
+  const showTask = () => {
+
+  }
+
   return (
     <div>
+      <h2><Days/></h2>
       <h2 id="Clock">{time}</h2>
-      <SetAlarmForm time={time}/>
+      <img src={clipboardClock} alt="" onClick={setShoForm(true)}></img>
+      <img src={clipboard} alt="" onClick={showTask}></img>
+      {/* <SetAlarmForm time={time}/> */}
     </div>
   )
 };
