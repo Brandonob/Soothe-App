@@ -3,6 +3,10 @@ import { addAlarm, currentAlarm, deleteAlarm } from '../alarms/alarmsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAlarms  } from './alarmsSlice'
 import DisplayAlarm from './DisplayAlarm'
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
+toast.configure();
 
 const SetAlarmForm = ({ time }) => {
   const [task, setTask] = useState("");
@@ -53,6 +57,10 @@ const SetAlarmForm = ({ time }) => {
     
     let formatted = addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + e.target.children[2].value
     dispatch(addAlarm({ "time": formatted, "task": task }))
+    setHour("");
+    setMinutes("");
+    setTask("");
+    toast("New task created!");
     // debugger
   }
 
