@@ -12,8 +12,8 @@ const DisplayAlarm = ({ alarmDetails }) => {
     return (
         <div className="alarm">
 
-            <h1>{time}</h1>
-            <p>{task}</p>
+            <h1 id="ADtime">{time}</h1>
+            <p id="ADtime">{task}</p>
             <Player />
         </div>
     )
