@@ -23,7 +23,7 @@ const Clock = () => {
   },[])
 
   const showForm = () => {
-    return <SetAlarmForm time={time}/>
+    shoForm === false ? setShoForm(true) : setShoForm(false)
   }
   const showTask = () => {
 
@@ -33,8 +33,9 @@ const Clock = () => {
     <div>
       <h2><Days/></h2>
       <h2 id="Clock">{time}</h2>
-      <img src={clipboardClock} alt="" onClick={setShoForm(true)}></img>
+      <img src={clipboardClock} alt="" onClick={showForm}></img>
       <img src={clipboard} alt="" onClick={showTask}></img>
+      {shoForm === true ? <SetAlarmForm time={time}/> : null}
       {/* <SetAlarmForm time={time}/> */}
     </div>
   )
