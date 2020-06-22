@@ -2,6 +2,7 @@ import React from 'react';
 import './css/homeCss.css';
 import SetAlarmForm from './features/alarms/SetAlarmForm'
 import Clock from './features/clock/Clock'
+import DisplayWeatherLocation from './features/weather/DisplayWeatherLocation'
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
         {/* <SetAlarmForm/> */}
       </section>
       <section className="right">
-        <Clock/>
+        <Clock />
+        <DisplayWeatherLocation/>
       </section>
     </div>
   );
