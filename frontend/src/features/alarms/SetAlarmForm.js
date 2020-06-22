@@ -21,6 +21,13 @@ const SetAlarmForm = ({ time }) => {
   const fireTask = (task) => {
     setAlarmDetails(task)
   }
+  const DisplayTodos = () => {
+    return (
+      <section >
+
+      </section>
+    )
+  }
 
   useEffect(() => {
     toDos.alarms.forEach(el => {
@@ -50,17 +57,19 @@ const SetAlarmForm = ({ time }) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Hr" type="text" onChange={(e) => setHour(e.target.value)}/>
-        <input placeholder="Min" type="text" onChange={(e) => setMinutes(e.target.value)}/>
-        <select>
-          <option>PM</option>
-          <option>AM</option>
-        </select>
-        <input placeholder="Task/Reminder (Optional)" onChange={(e) => setTask(e.target.value)}/>
-        <button type="submit">submit</button>
-      </form>
+    <div >
+      <section className="formBorder">
+        <form id="taskForm" onSubmit={handleSubmit}>
+          <input id="timeinput" placeholder="Hr" type="text" onChange={(e) => setHour(e.target.value)}/>
+          <input id="timeinput" placeholder="Min" type="text" onChange={(e) => setMinutes(e.target.value)}/>
+          <select>
+            <option>PM</option>
+            <option>AM</option>
+          </select>
+          <input placeholder="Task/Reminder (Optional)" onChange={(e) => setTask(e.target.value)}/>
+          <button type="submit">submit</button>
+        </form>
+      </section>
       {/* <h1>{alarmDetails.time}</h1> */}
       <DisplayAlarm  alarmDetails={alarmDetails}/>
     </div>
