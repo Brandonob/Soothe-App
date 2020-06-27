@@ -11,7 +11,6 @@ const DisplayAlarm = ({ alarmDetails, alarmOff }) => {
     
     return (
         <div className="alarm">
-
             <h1>{time}</h1>
             <p>{task}</p>
             {alarmOff ? <Player /> : null}

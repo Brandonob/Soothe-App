@@ -25,6 +25,11 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
   const fireTask = (task) => {
     setAlarmDetails(task)
   }
+  if(alarmDetails) {
+    setInterval(() => {
+      setAlarmDetails("")
+  }, 5000);
+  }
 
   useEffect(() => {
     toDos.alarms.forEach(el => {

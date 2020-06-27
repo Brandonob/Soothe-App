@@ -176,9 +176,21 @@ img {
 
 }
 .alarm {
-    /* background-color: rgb(60,111,113, 0.9); */
-    /* height: 200px;
-    width: 220px; */
+    position: fixed;
+    left: 0%;
+    bottom: 0%;
+    background-color: rgb(60,111,113, 0.9);
+    border-radius: 10px;
+    height: 200px;
+    width: 220px; 
+    display: flex;
+    justify-content:center ;
+}
+#ADtime {
+    font-size: 100px;
+}
+#ADtask {
+    font-size: 50px;
 }
 /* .alarm > h1{
     font-size: 50px;
