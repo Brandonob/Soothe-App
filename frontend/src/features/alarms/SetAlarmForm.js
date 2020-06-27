@@ -15,7 +15,7 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("00");
   const [alarmDetails, setAlarmDetails] = useState("");
-
+  const [alarmOff, setAlarmOff] = useState(false)
   
   const dispatch = useDispatch();
   const toDos = useSelector(selectAlarms)
@@ -37,6 +37,7 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
         // debugger
         fireTask(el)
         // console.log("setAlarm was hit");
+        setAlarmOff(true)
       }
     })
 
@@ -50,6 +51,7 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
     }
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -60,7 +62,7 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
       setMessage("")
     }, 3000);
     
-    toast("New task created!");
+    toast.success("New task created!");
     // debugger
   }
 
@@ -81,7 +83,7 @@ const SetAlarmForm = ({ time, shoForm, shoTasks }) => {
           {message}
         </form>
       </section> : null}
-      <DisplayAlarm  alarmDetails={alarmDetails}/>
+      <DisplayAlarm  alarmDetails={alarmDetails} alarmOff={alarmOff}/>
     </div>
   )
 }
